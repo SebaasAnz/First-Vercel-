@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <title>Panel - Medicenter</title>
+  <style>
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body, html {
+      height: 100%;
+      font-family: 'Segoe UI', sans-serif;
+      background: linear-gradient(135deg, #f0f7f8 50%, hwb(192 9% 29%) 50%);
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+
+    .panel-container {
+      background: white;
+      border-radius: 12px;
+      box-shadow: 0 8px 30px rgba(0, 0, 0, 0.1);
+      width: 360px;
+      padding: 40px 30px;
+      position: relative;
+      text-align: center;
+    }
+
+    .avatar {
+      width: 80px;
+      height: 80px;
+      border-radius: 50%;
+      background: #003b5c;
+      color: white;
+      font-size: 40px;
+      line-height: 80px;
+      text-align: center;
+      position: absolute;
+      top: -40px;
+      left: calc(50% - 40px);
+    }
+
+    h2 {
+      margin-top: 50px;
+      font-size: 22px;
+      color: #003b5c;
+      margin-bottom: 20px;
+    }
+
+    .info-group {
+      text-align: left;
+      margin-bottom: 15px;
+    }
+
+    .info-group label {
+      font-weight: bold;
+      color: #444;
+      font-size: 14px;
+      display: block;
+    }
+
+    .info-group p {
+      font-size: 15px;
+      color: #333;
+      margin: 5px 0 0;
+      padding-left: 5px;
+    }
+
+    .btn-logout {
+      margin-top: 25px;
+      width: 100%;
+      padding: 12px;
+      background-color: hwb(192 9% 29%);
+      border: none;
+      color: white;
+      font-size: 16px;
+      border-radius: 8px;
+      cursor: pointer;
+      transition: background 0.3s;
+    }
+
+    .btn-logout:hover {
+      background-color: hwb(192 10% 53%);
+    }
+  </style>
+</head>
+<body>
+  <div class="panel-container">
+    <div class="avatar">🩺</div>
+    <h2>Panel del Paciente</h2>
+
+    <div class="info-group">
+      <label>Nombre completo</label>
+      <p>{{ nombre }}</p>
+    </div>
+
+    <div class="info-group">
+      <label>Cédula</label>
+      <p>{{ cedula }}</p>
+    </div>
+
+    <div class="info-group">
+      <label>Medicamento asignado</label>
+      <p>{{ medicamento.nombre }}</p>
+    </div>
+
+    <div class="info-group">
+      <label>Dosis recomendada</label>
+      <p>{{ medicamento.dosis }}</p>
+    </div>
+
+    <form method="POST" action="/logout">
+      <button type="submit" class="btn-logout">Cerrar sesión</button>
+    </form>
+  </div>
+</body>
+</html>
